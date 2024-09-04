@@ -1,0 +1,29 @@
+<?php
+
+require_once "CPU.php";
+require_once "SSD.php";
+require_once "Memoria.php";
+
+Class ComputadorFacade
+{
+    public $CPU;
+    public $SSD;
+    public $Memoria;
+
+    function __construct($CPU, $Memoria, $SSD)
+    {
+        $this -> CPU = $CPU;
+        $this -> SSD = $SSD;
+        $this -> Memoria = $Memoria;
+    }
+
+    function ligarComputador()
+    {
+        $this -> CPU -> inicializar();
+        $this -> SSD -> ler();
+        $this -> Memoria -> carregar();
+        $this -> CPU -> executar();
+    }
+}
+
+?>
