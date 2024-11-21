@@ -1,1 +1,1 @@
-# Padroes-de-Projeto
+# Padroes-GoF

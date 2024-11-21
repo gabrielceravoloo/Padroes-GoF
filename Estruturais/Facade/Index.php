@@ -1,15 +1,9 @@
 <?php
 
-require_once "CPU.php";
-require_once "SSD.php";
-require_once "Memoria.php";
-require_once "ComputadorFacade.php";
+require_once 'SistemaPedidoFacade.php';
 
-$cpu = new CPU("Intel Core i7");
-$memoria = new Memoria("16GB");
-$ssd = new SSD("1TB");
+$facade = new SistemaPedidoFacade();
 
-$computador = new ComputadorFacade($cpu, $memoria, $ssd);
-$computador->ligarComputador();
+$facade -> processarPedido("Camiseta", 3, "Cartão de Crédito");
 
 ?>

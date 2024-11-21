@@ -1,14 +1,16 @@
 <?php
 
-require_once 'ArquivoXML.php';
-require_once 'Adapter.php';
+require_once 'AdaptadorJsonParaXml.php';
 
-// =============================================================================
+$json = '{"nome": "Gabriel", 
+          "idade": 20, 
+          "cargo": "estudante", 
+          "contatos": {"email": "gabriel@gmail.com", "telefone": "(00) 00000-0000"}}';
 
-$ArquivoXML = new ArquivoXML('./Arquivos/exemplo.xml');
+$conversorJson = new ConversorJson();
+$adaptador = new AdaptadorJsonParaXml($conversorJson);
 
-$adapter = new Adapter($ArquivoXML->ArquivoXML);
-$json = $adapter->tradutorJSON();
-echo $json;
+$xml = $adaptador -> converter($json);
 
+echo $xml;
 ?>
